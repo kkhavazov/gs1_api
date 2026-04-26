@@ -19,8 +19,7 @@ const (
 	ID_FILE      = "testing.txt"
 	WORKER_COUNT = 20
 	BASE_URL     = "https://serviceplattform.gs1.de/api/master_data_service/v1/product"
-	AUTH_TOKEN   = "eyJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJodHRwczovL3Byb2Quc2ltYmEuZWVjYy5kZS90ZXN0Iiwic3ViIjoiMzEwNzEzIiwiaWF0IjoxNzc0MzUxODI1LCJleHAiOjQ5Mjc5NTE4MjUsInBlcm1pc3Npb25zIjoiRVBTLEdUSU5NQU5BR0VSLFZCR0YsR0xOTUFOQUdFUixHUzFDT01QTEVURSIsImdsbiI6IjQyNTA0MDk3MDAwMDEiLCJuYW1lIjoiRGFuaWVsIER1YnMiLCJjb21wYW55IjoiU2VkYXRlY2ggRXVyb3BlIEdtYkgiLCJsYW5ndWFnZSI6IkRFIiwicHJldmlvdXNfZ2xuIjoiIiwicHJldmlvdXNfY29nbG5BY2NvdW50SWQiOiIiLCJlbWFpbCI6ImluZm9Ac2VkYXRlY2guZXUiLCJjb2dsbkFjY291bnRJZCI6IkQyNTA4MDcifQ.6U9hg0I_DX0JJ99kiJHYs_I-_1bSD6iOBvxbWSkHBADTtqjyKx176PhniY2lS6GYWJwmjEff0TQSSq9PQ_QikA"
-)
+	AUTH_TOKEN   =  os.Getenv("gs1_token") 
 
 func worker(id int, jobs <-chan string, wg *sync.WaitGroup, client *http.Client) {
 	defer wg.Done()
